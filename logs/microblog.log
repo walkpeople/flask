@@ -1,0 +1,47 @@
+2019-05-27 17:12:00,726 ERROR: Exception on /user/Susan [GET] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
+Traceback (most recent call last):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/user/文档/python_work/flask_web/app/routes.py", line 117, in user
+    return render_template('user.html',user=user,posts=posts)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/文档/python_work/flask_web/app/templates/user.html", line 1, in top-level template code
+    {% extends 'base.html'%}
+  File "/home/user/文档/python_work/flask_web/app/templates/base.html", line 31, in top-level template code
+    {% block content %} {% endblock %}
+  File "/home/user/文档/python_work/flask_web/app/templates/user.html", line 26, in block "content"
+    {% include '_post.html' %}
+  File "/home/user/文档/python_work/flask_web/app/templates/_post.html", line 4, in top-level template code
+    <td> {{ post.author()  }} says:<br>{{ post.body }}</td>
+TypeError: 'User' object is not callable
+2019-05-27 17:13:59,948 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
+2019-05-27 17:14:02,359 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
+2019-05-27 17:14:13,141 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
+2019-05-27 17:14:22,468 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
+2019-05-27 17:14:33,707 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
+2019-05-27 17:14:56,476 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
+2019-05-27 17:15:04,304 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
+2019-05-27 17:15:47,836 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]

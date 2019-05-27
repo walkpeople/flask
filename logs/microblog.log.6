@@ -1,0 +1,116 @@
+2019-05-27 10:42:03,254 ERROR: Exception on /register [POST] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
+Traceback (most recent call last):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 552, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/user/文档/python_work/flask_web/app/routes.py", line 84, in register
+    if form.validate_on_submit():
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
+    return self.is_submitted() and self.validate()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/form.py", line 310, in validate
+    return super(Form, self).validate(extra)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/form.py", line 152, in validate
+    if not field.validate(self, extra):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 206, in validate
+    stop_validation = self._run_validation_chain(form, chain)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
+    validator(form, self)
+  File "/home/user/文档/python_work/flask_web/app/forms.py", line 43, in validate_username
+    user = User.query.filter_by(username=username.data).first()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3215, in first
+    ret = list(self[0:1])
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3007, in __getitem__
+    return list(res)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3317, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3342, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 383, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 128, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 552, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user 
+WHERE user.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('Susan', 1, 0)]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-05-27 10:44:46,444 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
+2019-05-27 10:45:21,449 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
+2019-05-27 10:46:18,898 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
+2019-05-27 10:47:16,144 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:102]
+2019-05-27 10:47:32,775 INFO: ==> GET User : John  [in /home/user/文档/python_work/flask_web/app/routes.py:102]
+2019-05-27 10:47:32,883 ERROR: Exception on /user/John [GET] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
+Traceback (most recent call last):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/user/文档/python_work/flask_web/app/routes.py", line 108, in user
+    return render_template('user.html',user=user,posts=posts)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/文档/python_work/flask_web/app/templates/user.html", line 1, in top-level template code
+    {% extends 'base.html'%}
+  File "/home/user/文档/python_work/flask_web/app/templates/base.html", line 31, in top-level template code
+    {% block content %} {% endblock %}
+  File "/home/user/文档/python_work/flask_web/app/templates/user.html", line 14, in block "content"
+    {% elif not current_user.isfollowing(user) %}
+jinja2.exceptions.UndefinedError: 'app.models.User object' has no attribute 'isfollowing'
+2019-05-27 10:47:55,516 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:102]
+2019-05-27 10:49:08,689 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
+2019-05-27 10:49:12,066 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:102]
+2019-05-27 10:49:20,889 INFO: ==> GET User : John  [in /home/user/文档/python_work/flask_web/app/routes.py:102]

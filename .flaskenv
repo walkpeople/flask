@@ -1,3 +1,7 @@
 FLASK_APP=microblog.py
-FLASK_ENV=development
+#MAIL_SERVER=smtp.163.com
+#MAIL_PORT=25
+#MAIL_USE_TLS=1
+#MAIL_USERNAME=xianman125@163.com
+#MAIL_PASSWORD=link10086
 
