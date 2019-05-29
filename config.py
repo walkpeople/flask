@@ -30,4 +30,5 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['853023114@qq.com']
 
-
+    #动态分页大小
+    POST_PRE_PAGE = 3

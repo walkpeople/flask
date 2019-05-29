@@ -98,7 +98,7 @@ class Post(db.Model):
     
     def author(self):
         user = User.query.filter_by(id=self.user_id).first_or_404()  
-        return user.username 
+        return user 
 
     def __repr__(self):
 

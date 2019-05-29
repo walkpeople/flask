@@ -1,38 +1,4 @@
-2019-05-27 16:25:55,438 ERROR: Exception on /edit_profile [POST] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
-Traceback (most recent call last):
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
-    raise value
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/user/文档/python_work/flask_web/app/routes.py", line 139, in edit_profile
-    if form.validate_on_submit():
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
-    return self.is_submitted() and self.validate()
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/form.py", line 310, in validate
-    return super(Form, self).validate(extra)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/form.py", line 152, in validate
-    if not field.validate(self, extra):
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 206, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
-    validator(form, self)
-  File "/home/user/文档/python_work/flask_web/app/forms.py", line 70, in validate_username
-    if user is not None:
-UnboundLocalError: local variable 'user' referenced before assignment
-2019-05-27 16:27:15,265 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 16:27:22,223 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
-2019-05-27 16:30:22,728 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 16:30:40,766 ERROR: Exception on /index [POST] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
+2019-05-27 16:34:48,453 ERROR: Exception on /index [POST] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
 Traceback (most recent call last):
   File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
     response = self.full_dispatch_request()
@@ -61,8 +27,7 @@ Traceback (most recent call last):
   File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
     validator(form, self)
 TypeError: __init__() takes from 1 to 2 positional arguments but 3 were given
-2019-05-27 16:32:35,532 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 16:32:42,016 ERROR: Exception on /index [POST] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
+2019-05-27 16:34:59,459 ERROR: Exception on /index [POST] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
 Traceback (most recent call last):
   File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
     response = self.full_dispatch_request()
@@ -91,4 +56,64 @@ Traceback (most recent call last):
   File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
     validator(form, self)
 TypeError: __init__() takes from 1 to 2 positional arguments but 3 were given
-2019-05-27 16:34:44,862 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
+2019-05-27 16:36:04,455 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
+2019-05-27 16:36:16,665 ERROR: Exception on /index [POST] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
+Traceback (most recent call last):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/user/文档/python_work/flask_web/app/routes.py", line 32, in index
+    if form.validate_on_submit():
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
+    return self.is_submitted() and self.validate()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/form.py", line 310, in validate
+    return super(Form, self).validate(extra)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/form.py", line 152, in validate
+    if not field.validate(self, extra):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 206, in validate
+    stop_validation = self._run_validation_chain(form, chain)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
+    validator(form, self)
+TypeError: __init__() takes from 1 to 2 positional arguments but 3 were given
+2019-05-27 16:36:19,913 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:109]
+2019-05-27 16:36:31,190 ERROR: Exception on /index [POST] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
+Traceback (most recent call last):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/user/文档/python_work/flask_web/app/routes.py", line 32, in index
+    if form.validate_on_submit():
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
+    return self.is_submitted() and self.validate()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/form.py", line 310, in validate
+    return super(Form, self).validate(extra)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/form.py", line 152, in validate
+    if not field.validate(self, extra):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 206, in validate
+    stop_validation = self._run_validation_chain(form, chain)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
+    validator(form, self)
+TypeError: __init__() takes from 1 to 2 positional arguments but 3 were given
+2019-05-27 16:37:08,498 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:109]

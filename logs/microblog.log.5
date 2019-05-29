@@ -1,82 +1,4 @@
-2019-05-27 10:49:30,829 ERROR: Exception on /follow/John [GET] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
-Traceback (most recent call last):
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
-    raise value
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/user/文档/python_work/flask_web/app/routes.py", line 156, in follow
-    current_user.folllow(user)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/werkzeug/local.py", line 348, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'User' object has no attribute 'folllow'
-2019-05-27 10:50:19,571 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 10:50:23,003 INFO: ==> GET User : John  [in /home/user/文档/python_work/flask_web/app/routes.py:102]
-2019-05-27 10:50:27,790 INFO: ==> GET User : John  [in /home/user/文档/python_work/flask_web/app/routes.py:102]
-2019-05-27 11:03:18,752 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:102]
-2019-05-27 13:04:12,190 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 13:04:30,247 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:102]
-2019-05-27 16:00:00,487 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 16:00:48,997 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:109]
-2019-05-27 16:00:53,538 ERROR: Exception on /index [GET] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
-Traceback (most recent call last):
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
-    raise value
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/user/文档/python_work/flask_web/app/routes.py", line 50, in index
-    return render_template('index.html',title='Home',posts=posts)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/user/文档/python_work/flask_web/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/user/文档/python_work/flask_web/app/templates/base.html", line 31, in top-level template code
-    {% block content %} {% endblock %}
-  File "/home/user/文档/python_work/flask_web/app/templates/index.html", line 6, in block "content"
-    {{ form.hidden_tag() }}
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2019-05-27 16:06:59,937 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 16:07:29,452 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:109]
-2019-05-27 16:08:35,801 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 16:09:04,649 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:109]
-2019-05-27 16:11:10,225 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 16:14:05,912 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 16:16:12,323 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 16:19:43,709 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 16:22:10,650 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 16:22:42,902 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
-2019-05-27 16:22:50,918 ERROR: Exception on /edit_profile [POST] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
+2019-05-27 16:25:55,438 ERROR: Exception on /edit_profile [POST] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
 Traceback (most recent call last):
   File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
     response = self.full_dispatch_request()
@@ -107,4 +29,66 @@ Traceback (most recent call last):
   File "/home/user/文档/python_work/flask_web/app/forms.py", line 70, in validate_username
     if user is not None:
 UnboundLocalError: local variable 'user' referenced before assignment
-2019-05-27 16:25:48,048 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
+2019-05-27 16:27:15,265 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
+2019-05-27 16:27:22,223 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
+2019-05-27 16:30:22,728 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
+2019-05-27 16:30:40,766 ERROR: Exception on /index [POST] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
+Traceback (most recent call last):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/user/文档/python_work/flask_web/app/routes.py", line 32, in index
+    if form.validate_on_submit():
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
+    return self.is_submitted() and self.validate()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/form.py", line 310, in validate
+    return super(Form, self).validate(extra)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/form.py", line 152, in validate
+    if not field.validate(self, extra):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 206, in validate
+    stop_validation = self._run_validation_chain(form, chain)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
+    validator(form, self)
+TypeError: __init__() takes from 1 to 2 positional arguments but 3 were given
+2019-05-27 16:32:35,532 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
+2019-05-27 16:32:42,016 ERROR: Exception on /index [POST] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
+Traceback (most recent call last):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/user/文档/python_work/flask_web/app/routes.py", line 32, in index
+    if form.validate_on_submit():
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
+    return self.is_submitted() and self.validate()
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/form.py", line 310, in validate
+    return super(Form, self).validate(extra)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/form.py", line 152, in validate
+    if not field.validate(self, extra):
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 206, in validate
+    stop_validation = self._run_validation_chain(form, chain)
+  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
+    validator(form, self)
+TypeError: __init__() takes from 1 to 2 positional arguments but 3 were given
+2019-05-27 16:34:44,862 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
