@@ -1,27 +1,40 @@
 {% extends "base.html" %}
 
-{% block content %}
-<h1>Hi {{ current_user.username }}</h1>
-{% if form %}
-<form action="" method="post">
-	{{ form.hidden_tag() }}
-	<p>
-	{{ form.post.label }}<br>
-	{{ form.post(cols=32, rows=4) }}<br>
-	{% for error in form.post.errors %}
-	<span style="color:red;">[{{ error }}]</span>
-	{% endfor %}
-	</p>
-	<p>{{ form.submit() }}</p>
-</form>
-{% endif %}
-{% for post in posts %}
+{% block app_content %}
+<div class="container">
+	<div class="mt-4">
+		<h3>Hi <span class="text-primary"> {{ current_user.username }} </span></h3>
+	</div>
+	{% if form %}
+	<form  class="mt-3" action="" method="post">
+		{{ form.hidden_tag() }}
+		<div class="form-group">
+			<label for="username">{{ form.post.label() }}</label>
+			{{ form.post(class="form-control",id="username",row="5") }}
+			{% for error in form.post.errors %}
+			<small class="form-text text-muted">[ {{ error }} ] </small>
+			{% endfor %}
+
+		</div>
+		<p class="text-right">{{ form.submit(class="btn btn-secondary") }}</p>
+	</form>
+	{% endif %}
+
+	{% for post in posts %}
 	{% include '_post.html' %}
-{% endfor %}
-{% if prev_url %}
-	<a href="{{ prev_url }}"> 上次动态</a>
-{% endif %}
-{% if next_url %}
-	<a href="{{ next_url }}"> 先前动态</a>
-{% endif %}
+	{% endfor %}
+
+	<div class="mt-3">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				{% if prev_url %}
+				<li class="page-item"><a class="page-link" href="{{ prev_url }}">Previous</a></li>
+				{% endif %}
+				{% if next_url %}
+				<li class="page-item"><a class="page-link" href="{{ next_url }}">Next</a></li>
+				{% endif %}
+			</ul>
+		</nav>
+	</div>
+</div>
 {% endblock %}

@@ -1,37 +1,54 @@
 {% extends 'base.html'%}
 
-{% block content %}
-<table>
-	<tr valign="top">
-		<td> <img src="{{ user.avatar(128) }}" alt="gravatar not loaded"></td>
-		<td>
-			<h1>用户: {{ user.username }}</h1>
-			{% if user.about_me %} <p>{{ user.about_me}}</p> {% endif %}
-			{% if user.last_seen %} <p>上次登录: {{ user.last_seen}}</p>{% endif %}
-			<p>{{ user.followers.count() }} 粉丝, {{ user.followed.count() }} 关注</p>
+{% block app_content %}
+<div class="container">
+
+	<div class="row mt-3">
+		<div class="col-3">
+			<img src="{{ user.avatar(128) }}" alt="gravatar not loaded">
+			<h4 class="ml-4  pt-1 font-weight-bold">{{ user.username }}</h4>
 			{% if user == current_user %}
-			<p><a href="{{ url_for('edit_profile') }}">编辑资料 </a></p>
+			<a class="btn btn-secondary ml-3" href="{{ url_for('main.edit_profile') }}">编辑资料 </a>
 			{% elif not current_user.is_following(user) %}
-			<p><a href="{{ url_for('follow', username=user.username) }}">关注</a></p>
+			<a class="btn btn-info ml-3" href="{{ url_for('main.follow', username=user.username) }}">关注</a>
 			{% else %}
-			<p><a href="{{ url_for('unfollow', username=user.username) }}">取消关注</a></p>
+			<a class="btn btn-info ml-3" href="{{ url_for('main.unfollow', username=user.username) }}">取消关注</a>
 
 			{% endif %}
-		</td>
-	</tr>
-</table>
 
-<hr>
+		</div>
+		<div class="col-7 text-center">
+			<ul class="list-group">
+				<li class="list-group-item ">
+					{% if user.about_me %} <p>{{ user.about_me}}</p> {% endif %}
+				</li>
+				<li class="list-group-item">
+					{% if user.last_seen %} <p>上次登录: {{ user.last_seen}}</p>{% endif %}
+				</li>
+				<li class="list-group-item">
+					{{ user.followers.count() }} 粉丝, {{ user.followed.count() }} 关注
+				</li>
+			</ul>
+		</div>
+	</div>
 
-{% for post in posts %}
+	<hr>
+
+	{% for post in posts %}
 	{% include '_post.html' %}
-{% endfor %}
-{% if next_url %}
-	<a href="{{ next_url }}"> 先前动态</a>
-{% endif %}
-{% if prev_url %}
-	<a href="{{ prev_url }}"> 上次动态</a>
-{% endif %}
+	{% endfor %}
+	<div class="mt-3">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				{% if prev_url %}
+				<li class="page-item"><a class="page-link" href="{{ prev_url }}">Previous</a></li>
+				{% endif %}
+				{% if next_url %}
+				<li class="page-item"><a class="page-link" href="{{ next_url }}">Next</a></li>
+				{% endif %}
+			</ul>
+		</nav>
+	</div>
 
-
-{% endblock %}
+	<div>
+		{% endblock %}

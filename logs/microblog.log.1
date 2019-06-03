@@ -1,106 +1,78 @@
-2019-05-27 17:12:00,726 ERROR: Exception on /user/Susan [GET] [in /home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py:1780]
+2019-05-31 21:28:37,092 ERROR: Exception on / [GET] [in /home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py:1780]
 Traceback (most recent call last):
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
     raise value
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/user/文档/python_work/flask_web/app/routes.py", line 117, in user
-    return render_template('user.html',user=user,posts=posts)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/user/文档/python_work/flask_web/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 1830, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 2106, in preprocess_request
+    rv = func()
+  File "/home/user/python_work/flask_web/flask/app/routes.py", line 139, in before_request
+    if current_user.is_authenticated:
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/werkzeug/local.py", line 348, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/werkzeug/local.py", line 307, in _get_current_object
+    return self.__local()
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask_login/utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask_login/utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "/home/user/python_work/flask_web/flask/app/models.py", line 129, in load_user
+    return User.query.get(int(id))
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 959, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 1069, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/orm/loading.py", line 282, in load_on_pk_identity
+    return q.one()
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3281, in one
+    ret = self.one_or_none()
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3250, in one_or_none
+    ret = list(self)
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3323, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3348, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 383, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 128, in reraise
     raise value.with_traceback(tb)
-  File "/home/user/文档/python_work/flask_web/app/templates/user.html", line 1, in top-level template code
-    {% extends 'base.html'%}
-  File "/home/user/文档/python_work/flask_web/app/templates/base.html", line 31, in top-level template code
-    {% block content %} {% endblock %}
-  File "/home/user/文档/python_work/flask_web/app/templates/user.html", line 26, in block "content"
-    {% include '_post.html' %}
-  File "/home/user/文档/python_work/flask_web/app/templates/_post.html", line 4, in top-level template code
-    <td> {{ post.author()  }} says:<br>{{ post.body }}</td>
-TypeError: 'User' object is not callable
-2019-05-27 17:13:59,948 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 17:14:02,359 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
-2019-05-27 17:14:13,141 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
-2019-05-27 17:14:22,468 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
-2019-05-27 17:14:33,707 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
-2019-05-27 17:14:56,476 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-27 17:15:04,304 INFO: ==> GET User : Susan  [in /home/user/文档/python_work/flask_web/app/routes.py:111]
-2019-05-27 17:15:47,836 INFO: MicroBlog Start [in /home/user/文档/python_work/flask_web/app/error.py:72]
-2019-05-29 10:39:14,949 INFO: MicroBlog Start [in /home/user/python_work/flask_web/flask/app/error.py:72]
-2019-05-29 10:40:11,087 INFO: ==> GET User : Susan  [in /home/user/python_work/flask_web/flask/app/routes.py:111]
-2019-05-29 21:12:26,078 INFO: MicroBlog Start [in /home/user/python_work/flask_web/flask/app/error.py:72]
-2019-05-29 21:12:55,173 ERROR: Exception on /explore [GET] [in /home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py:1780]
-Traceback (most recent call last):
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
-    raise value
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/user/python_work/flask_web/flask/app/routes.py", line 192, in explore
-    posts = Post.query.filter_by(Post.timestamp.desc()).all()
-TypeError: filter_by() takes 1 positional argument but 2 were given
-2019-05-29 21:13:41,590 INFO: MicroBlog Start [in /home/user/python_work/flask_web/flask/app/error.py:72]
-2019-05-29 21:15:27,186 INFO: MicroBlog Start [in /home/user/python_work/flask_web/flask/app/error.py:72]
-2019-05-29 21:15:37,441 INFO: ==> GET User : Susan  [in /home/user/python_work/flask_web/flask/app/routes.py:111]
-2019-05-29 21:15:42,301 INFO: ==> GET User : John  [in /home/user/python_work/flask_web/flask/app/routes.py:111]
-2019-05-29 21:15:46,672 INFO: ==> GET User : Susan  [in /home/user/python_work/flask_web/flask/app/routes.py:111]
-2019-05-29 21:15:50,745 INFO: ==> GET User : Susan  [in /home/user/python_work/flask_web/flask/app/routes.py:111]
-2019-05-29 21:18:19,754 INFO: MicroBlog Start [in /home/user/python_work/flask_web/flask/app/error.py:72]
-2019-05-29 21:18:27,531 INFO: ==> GET User : John  [in /home/user/python_work/flask_web/flask/app/routes.py:111]
-2019-05-29 21:18:33,357 INFO: ==> GET User : Susan  [in /home/user/python_work/flask_web/flask/app/routes.py:111]
-2019-05-29 21:47:05,123 INFO: MicroBlog Start [in /home/user/python_work/flask_web/flask/app/error.py:72]
-2019-05-29 21:47:35,572 ERROR: Exception on /explore [GET] [in /home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py:1780]
-Traceback (most recent call last):
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
-    raise value
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/user/python_work/flask_web/flask/app/routes.py", line 197, in explore
-    page,app.config['PAGE_PRE_PAGE'], False)
-KeyError: 'PAGE_PRE_PAGE'
-2019-05-29 21:49:04,761 INFO: MicroBlog Start [in /home/user/python_work/flask_web/flask/app/error.py:72]
-2019-05-29 21:49:15,784 INFO: ==> GET User : Susan  [in /home/user/python_work/flask_web/flask/app/routes.py:114]
-2019-05-29 21:49:22,452 INFO: ==> GET User : Susan  [in /home/user/python_work/flask_web/flask/app/routes.py:114]
-2019-05-29 22:03:03,730 INFO: MicroBlog Start [in /home/user/python_work/flask_web/flask/app/error.py:72]
-2019-05-29 22:04:07,571 INFO: MicroBlog Start [in /home/user/python_work/flask_web/flask/app/error.py:72]
-2019-05-29 22:05:33,584 INFO: MicroBlog Start [in /home/user/python_work/flask_web/flask/app/error.py:72]
-2019-05-29 22:06:07,850 INFO: ==> GET User : Susan  [in /home/user/python_work/flask_web/flask/app/routes.py:115]
-2019-05-29 22:23:13,355 INFO: MicroBlog Start [in /home/user/python_work/flask_web/flask/app/error.py:72]
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/user/python_work/flask_web/flask/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user 
+WHERE user.id = ?]
+[parameters: (2,)]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-05-31 21:29:03,378 INFO: MicroBlog Start [in /home/user/python_work/flask_web/flask/app/error.py:72]

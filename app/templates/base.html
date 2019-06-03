@@ -1,34 +1,82 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <meta charset="utf-8" />
+		<meta charset="utf-8" />
+		{% block title %}
 		{% if title %}
 		<title>{{ title }} 's MicroBlog</title>
 		{% else %}
 		<title>欢迎来到微博客</title>
 		{% endif %}
+		{% endblock %}
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+		<script src="{{ url_for('static',filename='js/jquery-3.4.1.min.js')}} "></script>
+		<script src="{{ url_for('static',filename='js/bootstrap.min.js')}} "></script>
 	</head>
+
 	<body>
-		<div>MicroBlog:
-			<a href="{{ url_for('index') }}">首页 |</a> 
-			{% if current_user.is_anonymous  %}
-			<a href="{{ url_for('login') }}"> 登录 |</a>
-			{% else %}
-			<a href="{{ url_for('user', username=current_user.username) }}"> 空间 |</a>
-			<a href="{{ url_for('explore') }}"> 发现好友  |</a>
-			<a href="{{ url_for('logout') }}"> 登出  |</a>
-			{% endif %}
+		{% block navbar %}
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href="{{url_for('main.index')}}">MicroBlog</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ url_for('main.index') }}">首页 <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url_for('main.explore') }}">发现好友</a>
+						</li>
+						{% if current_user.is_anonymous  %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url_for('auth.login') }}">登录</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url_for('auth.register') }}">注册</a>
+							{% else %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ url_for('main.user',username=current_user.username )}}">空间</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ url_for('auth.logout') }}">登出</a>
+							</li>
+							{% endif %}
+					</ul>
+					{% if g.search_form %}
+					<form class="form-inline my-2 my-lg-0" method="get" action="{{ url_for('main.search')}}">
+						{{ g.search_form.q(class="form-control mr-sm-2",placeholder=g.search_form.q.label.text) }}
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">{{ g.search_form.q.label() }}</button>
+					</form>
+					{% endif %}
+				</div>
+			</nav>
 		</div>
-		<hr>
-		{% with messages= get_flashed_messages() %}
-		{% if messages %}
-		<ul>
+		{% endblock %}
+
+		{% block content %}
+		<div class="container">
+			{% with messages= get_flashed_messages() %}
+			{% if messages %}
 			{% for message in messages %}
-			<li><b>Hint is</b> {{ message }}</li>
+			<div class="alert alert-info" role="alert"> {{ message }}</div>
 			{% endfor %}
-		</ul>
-		{% endif %}
-		{% endwith %}
-		{% block content %} {% endblock %}
+			{% endif %}
+			{% endwith %}
+		</div>
+
+		{# application content needs to be provided in the app_content block #}
+		{% block app_content %}{% endblock %}
+
+		{% endblock %}
+
 	</body>
+
 </html>
+
+
+
+
+

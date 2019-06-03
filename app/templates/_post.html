@@ -1,10 +1,23 @@
-<table>
-	<tr vliagn="top">
-		<td> <img src="{{ post.author.avatar(36)}}" alt=""></td>
-		<td> 
-			<a href="{{ url_for('user',username=post.author.username ) }}">{{ post.author.username  }} </a> 
-			says:<br>{{ post.body }}
-		
-		</td>
-	</tr>
-</table>
+<ul class="list-group">
+	<li class="list-group-item">
+		<img src="{{ post.author.avatar(36)}}" alt="">
+		<a href="{{ url_for('main.user',username=post.author.username ) }}">{{ post.author.username  }} </a>
+		: <br>
+		<p class="pt-3" id="post{{post.id}}"> {{ post.body }}</p>
+		{% if post.language and post.language != g.locale %}
+		<button class="btn btn-secondary" onclick="translation('#post{{post.id}}', '#translation{{post.id}}')" id="translation{{post.id}}">翻译</button>
+		{% endif %}
+	</li>
+</ul>
+<script>
+function translation(sourceElem,destElem){
+	$(destElem).html("<span style='color:red;'>loading</span>")
+	$.post('/translate',{text:$(sourceElem).text()})
+		.done(function(response){
+			$(destElem).html("<span style='color:red;'>"+response+"</span>")
+			
+		}).fail(function(){
+			$(destElem).html("<span style='color:red;'>error </span>")
+		})
+}
+</script>

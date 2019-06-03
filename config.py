@@ -16,6 +16,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config(object):
 
+    
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///'+os.path.join(basedir,'app.db')
     # 数据发生变动发送信号给应用
@@ -28,7 +29,10 @@ class Config(object):
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS') is not None  
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-    ADMINS = ['853023114@qq.com']
+    ADMINS = ['xianman125@163.com']
 
     #动态分页大小
     POST_PRE_PAGE = 3
+
+    #elasticsearch 配置
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
