@@ -2,9 +2,14 @@
 {% block app_content %}
 <div class="container">
 	<h2>搜索结果....</h2>
+	{% if  total > 1 %}
 	{% for post in posts %}
 	{% include '_post.html' %}
 	{% endfor %}
+
+	{% else %}
+	<h3>没有找到相关结果</h3>
+	{% endif %}
 	<div class="mt-3">
 		<nav aria-label="Page navigation example">
 			<ul class="pagination">

@@ -170,12 +170,10 @@ def search():
         return redirect(url_for('main.explore'))
     page = request.args.get('page',1, type=int)
     posts,total = Post.search(g.search_form.q.data, page, current_app.config['POST_PRE_PAGE']) 
-    for post in posts:
-        logging.warning(post.body)
     next_url = url_for('main.search', q=g.search_form.q.data, page=page+1)if total  > page * current_app.config['POST_PRE_PAGE'] else None 
     
     prev_url = url_for('main.search', q=g.search_form.q.data, page=page-1)if page > 1  else None 
-    return render_template('search.html',title='搜索', posts=posts, prev_url=prev_url, next_url=next_url) 
+    return render_template('search.html',title='搜索', posts=posts, prev_url=prev_url, next_url=next_url, total=total) 
 
 
 
